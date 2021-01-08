@@ -5,8 +5,8 @@ import { Text, View, TouchableOpacity } from "react-native";
 // Styles
 import styles from "./MentionListItemStyles";
 
-import Avatar from "../Avatar";
-
+// import Avatar from "../Avatar";
+import { Avatar } from 'react-native-elements'
 export class MentionListItem extends React.PureComponent {
   static propTypes = {
     item: PropTypes.object,
@@ -27,20 +27,26 @@ export class MentionListItem extends React.PureComponent {
           style={[styles.suggestionItem, editorStyles.mentionListItemWrapper]}
           onPress={() => this.onSuggestionTap(user)}
         >
-          <Avatar
+          {/* <Avatar
             user={user}
             wrapperStyles={styles.thumbnailWrapper}
             charStyles={styles.thumbnailChar}
+          /> */}
+          <Avatar
+            rounded
+            source={{
+              uri:user.photo,
+            }}
           />
 
           <View style={[styles.text, editorStyles.mentionListItemTextWrapper]}>
             <Text style={[styles.title, editorStyles.mentionListItemTitle]}>
-              {user.name}
+              {user.firstname + ' ' + user.lastname}
             </Text>
             <Text
               style={[styles.username, editorStyles.mentionListItemUsername]}
             >
-              @{user.username}
+              @{user.firstname}
             </Text>
           </View>
         </TouchableOpacity>

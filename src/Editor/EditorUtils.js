@@ -20,7 +20,7 @@ export const displayTextWithMentions = (inputText, formatMentionNode) => {
         formattedText.push(initialStr);
         const formattedMention = formatMentionNode(
           `@${men.username}`,
-          `${index}-${men.id}-${rowIndex}`
+          `${men.id}`
         );
         formattedText.push(formattedMention);
         if (mentions.length - 1 === index) {
@@ -148,7 +148,7 @@ export const EU = {
   isEmpty: str => str === "",
   getMentionsWithInputText: inputText => {
     /**
-     * translate provided string e.g. `Hey @[mrazadar](id:1) this is good work.`
+     * translate provided string e.g. `Hey @mrazadar this is good work.`
      * populate mentions map with [start, end] : {...user}
      * translate inputText to desired format; `Hey @mrazadar this is good work.`
      */

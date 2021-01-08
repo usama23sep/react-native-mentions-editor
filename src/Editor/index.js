@@ -252,7 +252,7 @@ export class Editor extends React.Component {
       menIndex
     );
 
-    const username = `@${user.username}`;
+    const username = `@${user.firstname}`;
     const text = `${initialStr}${username} ${remStr}`;
     //'@[__display__](__id__)' ///find this trigger parsing from react-mentions
 
@@ -326,8 +326,8 @@ export class Editor extends React.Component {
       lastIndex = end + 1;
       formattedText.push(initialStr);
       const formattedMention = this.formatMentionNode(
-        `@${men.username}`,
-        `${start}-${men.id}-${end}`
+        `@${men.firstname}`,
+        `${men.id}`
       );
       formattedText.push(formattedMention);
       if (
@@ -349,7 +349,7 @@ export class Editor extends React.Component {
         start === 1 ? "" : inputText.substring(lastIndex, start);
       lastIndex = end + 1;
       formattedText = formattedText.concat(initialStr);
-      formattedText = formattedText.concat(`@[${men.username}](id:${men.id})`);
+      formattedText = formattedText.concat(`@[${men.firstname}](id:${men.id})`);
       if (
         EU.isKeysAreSame(EU.getLastKeyInMap(this.mentionsMap), [start, end])
       ) {
