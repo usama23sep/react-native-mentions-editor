@@ -5,6 +5,7 @@ import { ActivityIndicator, FlatList, Animated, View } from "react-native";
 import MentionListItem from "../MentionListItem";
 // Styles
 import styles from "./MentionListStyles";
+import { Text } from "react-native";
 
 export class MentionList extends React.PureComponent {
   static propTypes = {
@@ -57,6 +58,7 @@ export class MentionList extends React.PureComponent {
           ListEmptyComponent={
             <View style={styles.loaderContainer}>
               <ActivityIndicator />
+              <Text style={{textAlign:'center'}}>The professional you are trying to tag does not exist or you are not following them</Text>
             </View>
           }
           enableEmptySections={true}
